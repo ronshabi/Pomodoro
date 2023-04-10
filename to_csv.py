@@ -22,8 +22,8 @@ def main():
         arg = sys.argv[1]
         to_csv(arg)
     except:
-        print("")
-        sys.exit("Please provide log file")
+        print("Please provide log file")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
