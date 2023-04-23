@@ -9,4 +9,4 @@ namespace datetime
 {
 	std::string date();
 	std::string time_hh_mm();
-}
+} // namespace datetime

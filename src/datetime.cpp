@@ -28,4 +28,4 @@ namespace datetime
 		return { buffer };
 	}
 
-}
+} // namespace datetime

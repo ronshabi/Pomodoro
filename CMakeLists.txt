@@ -3,7 +3,7 @@ project(Pomodoro)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Pomodoro
+add_executable(pomodoro
         src/main.cpp
         src/timer.cpp
         src/timer.hpp
@@ -16,3 +16,9 @@ add_executable(Pomodoro
         src/logging.hpp
         src/datetime.cpp
         src/datetime.hpp)
+
+include(GNUInstallDirs)
+
+# message(STATUS ${CMAKE_INSTALL_BINDIR})
+
+install(TARGETS pomodoro)

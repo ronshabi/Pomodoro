@@ -1,5 +1,8 @@
 .idea/
 cmake-build-debug/
+.vscode/
+temp/
+build/
 
 ### C++ template
 # Prerequisites

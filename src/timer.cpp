@@ -27,16 +27,15 @@ void Timer::tick()
 	double percentage = static_cast<double>(m_seconds) / m_seconds_max;
 	m_progress_bar.set_percentage(percentage);
 
-	// Print time
-	std::cout << time_passed_string() << "\t" << m_progress_bar << '\r' << std::flush;
-
 	// Set console title
 	console::set_title(time_passed_string());
 
+	// Print time
+	std::cout << time_passed_string() << "\t" << m_progress_bar << '\r' << std::flush;
+
 
 	// Sleep
-	using namespace std::chrono_literals;
-	std::this_thread::sleep_for(1s);
+	std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	// Increment seconds
 	++m_seconds;
@@ -48,7 +47,7 @@ void Timer::finish()
 	m_status = Status::stopped;
 	// log
 
-	auto log_file_name{"log-" + datetime::date() + ".txt"};
+	auto log_file_name{logging::get_homedir() + "/.pomodoro/log-" + datetime::date() + ".txt"};
 
 	logging::log_to_text(log_file_name, datetime::time_hh_mm());
 }
@@ -70,4 +69,21 @@ std::string Timer::time_passed_string() const
 	buf[6] = 0;
 
 	return { buf };
+}
+
+void Timer::pause() {
+    m_status = Status::stopped;
+}
+
+void Timer::resume() {
+    m_status = Status::running;
+}
+
+void Timer::toggle()
+{
+    if (m_status == Status::stopped) {
+        m_status = Status::running;
+    } else {
+        m_status = Status::stopped;
+    }
 }

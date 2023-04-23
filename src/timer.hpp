@@ -4,7 +4,6 @@
 #include <chrono>
 #include <utility>
 #include <string>
-#include <format>
 #include <iostream>
 
 #include "types.hpp"
@@ -19,6 +18,9 @@ class Timer
 	explicit Timer(usize seconds = 0, usize seconds_max = 25*60);
 	[[nodiscard]] std::pair<usize,usize> time_passed() const;
 	[[nodiscard]] std::string time_passed_string() const;
+    void pause();
+    void resume();
+    void toggle();
  private:
 	enum class Status {
 		stopped,

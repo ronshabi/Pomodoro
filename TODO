@@ -1,0 +1,16 @@
+Features:
+- Async pausing using 'p'
+- Async quitting with saving using 'q' (this requires implementing fcntl on linux and threading I suppose).
+- Windows implementation of async console operations.
+- Windows support of console title change, since ANSI escape codes have undefined behaviour in Windows' cmd
+- Config files to override defaults
+
+Logging:
+- Currently, the program defaults to logging in the user's home folder.
+  Add support for locating the home folder (%HOMEPATH%) on Windows
+- The program implicitly assumes all sessions are 25 minutes, so log the session time as well
+
+Custom Commands:
+- Add "report" command to summrize your learning time today and show your overall progress.
+- Implement a scalable system for argument parsing to have the option for adding more arguments in the future
+- Better the help screen in case argument syntax is wrong.
