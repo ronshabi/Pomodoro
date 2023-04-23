@@ -17,5 +17,12 @@ pomodoro [session-length=25] [minutes-since-start=0]
 
 - Utility to export all logs to CSV (see "utilities" directory)
 
+## Install
+- Clone the repository.
+- Call ```cmake``` from your build directory.
+- ```make && sudo make install```
+
+_Replace make with your preferred generator (e.g. ninja)_
+
 ## Author
 Ron Shabi
