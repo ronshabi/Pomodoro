@@ -15,8 +15,8 @@ class Timer
 {
  public:
 	explicit Timer(int seconds = 0, int seconds_max = 25*60);
-	[[nodiscard]] std::pair<int,int> time_passed() const;
-	[[nodiscard]] std::string time_passed_string() const;
+	std::pair<int,int> time_passed() const;
+	std::string time_passed_string() const;
     void pause();
     void resume();
     void toggle();

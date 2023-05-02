@@ -31,7 +31,7 @@ void Timer::tick()
 	console::set_title(time_passed_string());
 
 	// Print time
-	std::cout << time_passed_string() << "\t" << m_progress_bar << '\r' << std::flush;
+	std::cout << time_passed_string() << "\t" << m_progress_bar << '\r';
 
 
 	// Sleep
@@ -43,10 +43,13 @@ void Timer::tick()
 
 void Timer::finish()
 {
+	// clear stdout
+    std::cout << std::endl;
+
 	// set status
 	m_status = Status::stopped;
-	// log
 
+	// log
 	auto log_file_name{logging::get_homedir() + "/.pomodoro/log-" + datetime::date() + ".txt"};
 
 	logging::log_to_text(log_file_name, datetime::time_hh_mm());
