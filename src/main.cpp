@@ -23,7 +23,7 @@ int main(int argc, const char** const argv)
     // Convert argv to string vector 
     std::vector<std::string> arguments{};
     for (int i = 1; i < argc; i++) {
-        arguments.push_back(argv[1]);
+        arguments.push_back(argv[i]);
     }
 
     // Argument parsing
