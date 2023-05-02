@@ -1,11 +1,11 @@
-#include <iostream>
-#include <cstdlib>
-#include <csignal>
-#include <vector>
 #include <cctype>
+#include <csignal>
+#include <cstdlib>
+#include <iostream>
+#include <vector>
 
-#include "timer.hpp"
 #include "logging.hpp"
+#include "timer.hpp"
 
 void print_usage()
 {
@@ -17,11 +17,11 @@ void print_usage()
 
 int main(int argc, const char** const argv)
 {
-    int duration{25*60};
-    int start{0};
+    int duration { 25 * 60 };
+    int start { 0 };
 
-    // Convert argv to string vector 
-    std::vector<std::string> arguments{};
+    // Convert argv to string vector
+    std::vector<std::string> arguments {};
     for (int i = 1; i < argc; i++) {
         arguments.push_back(argv[i]);
     }
@@ -34,7 +34,7 @@ int main(int argc, const char** const argv)
         if (session_duration <= 0) {
             // single argument checking is done here
             if (arguments.at(0) == "csv") {
-                logging::convert_log_to_csv(logging::get_homedir() + "/.pomodoro/log-"+datetime::date()+".txt");
+                logging::convert_log_to_csv(logging::get_homedir() + "/.pomodoro/log-" + datetime::date() + ".txt");
                 std::exit(0);
             } else {
                 print_usage();
@@ -43,10 +43,9 @@ int main(int argc, const char** const argv)
 
         // valid number
         duration = session_duration * 60;
-        
     } else if (arguments.size() == 2) {
-        int session_duration =  std::atoi(arguments.at(0).c_str());
-        int starting_offset =  std::atoi(arguments.at(1).c_str());
+        int session_duration = std::atoi(arguments.at(0).c_str());
+        int starting_offset = std::atoi(arguments.at(1).c_str());
 
         // Invalid duration arguments
         if (session_duration <= 0 || starting_offset <= 0) {
@@ -60,7 +59,7 @@ int main(int argc, const char** const argv)
         print_usage();
     }
 
-    Timer t{start, duration};
+    Timer t { start, duration };
 
     return 0;
 }
