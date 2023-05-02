@@ -17,8 +17,8 @@ void print_usage()
 
 int main(int argc, const char** const argv)
 {
-    usize duration{25*60};
-    usize start{0};
+    int duration{25*60};
+    int start{0};
 
     // Convert argv to string vector 
     std::vector<std::string> arguments{};
@@ -42,7 +42,8 @@ int main(int argc, const char** const argv)
         }
 
         // valid number
-        duration = static_cast<usize>(session_duration) * 60;
+        duration = session_duration * 60;
+        
     } else if (arguments.size() == 2) {
         int session_duration =  std::atoi(arguments.at(0).c_str());
         int starting_offset =  std::atoi(arguments.at(1).c_str());
@@ -53,8 +54,8 @@ int main(int argc, const char** const argv)
         }
 
         // Valid duration arguments
-        duration = static_cast<usize>(session_duration) * 60;
-        start = static_cast<usize>(session_duration) * 60;
+        duration = session_duration * 60;
+        start = session_duration * 60;
     } else {
         print_usage();
     }

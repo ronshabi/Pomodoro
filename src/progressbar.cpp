@@ -1,11 +1,11 @@
 #include "progressbar.hpp"
 
-ProgressBar::ProgressBar(usize size) : m_percentage{ 0 }, m_size{ size }
+ProgressBar::ProgressBar(int size) : m_percentage{ 0 }, m_size{ size }
 {
 
 }
 
-void ProgressBar::set_size(usize size)
+void ProgressBar::set_size(int size)
 {
 	m_size = size;
 }
@@ -17,7 +17,7 @@ void ProgressBar::set_percentage(double percentage)
 
 std::ostream& operator<<(std::ostream& stream, const ProgressBar& pb)
 {
-	auto draw_amount{ static_cast<usize>(pb.m_percentage * pb.m_size) };
+	auto draw_amount{ static_cast<int>(pb.m_percentage * pb.m_size) };
 	auto space_amount{ pb.m_size - draw_amount };
 	stream << '[';
 	stream << std::string(draw_amount, '=');

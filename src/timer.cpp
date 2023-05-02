@@ -1,6 +1,6 @@
 #include "timer.hpp"
 
-Timer::Timer(usize seconds, usize seconds_max)
+Timer::Timer(int seconds, int seconds_max)
 	: m_seconds{ seconds },
 	  m_seconds_max{ seconds_max },
 	  m_status{ Status::running },
@@ -52,7 +52,7 @@ void Timer::finish()
 	logging::log_to_text(log_file_name, datetime::time_hh_mm());
 }
 
-std::pair<usize, usize> Timer::time_passed() const
+std::pair<int, int> Timer::time_passed() const
 {
 	auto seconds = m_seconds % 60;
 	auto minutes = m_seconds / 60;

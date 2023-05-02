@@ -7,7 +7,6 @@ add_executable(pomodoro
         src/main.cpp
         src/timer.cpp
         src/timer.hpp
-        src/types.hpp
         src/progressbar.cpp
         src/progressbar.hpp
         src/console.cpp

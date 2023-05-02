@@ -6,7 +6,6 @@
 #include <string>
 #include <iostream>
 
-#include "types.hpp"
 #include "progressbar.hpp"
 #include "console.hpp"
 #include "logging.hpp"
@@ -15,8 +14,8 @@
 class Timer
 {
  public:
-	explicit Timer(usize seconds = 0, usize seconds_max = 25*60);
-	[[nodiscard]] std::pair<usize,usize> time_passed() const;
+	explicit Timer(int seconds = 0, int seconds_max = 25*60);
+	[[nodiscard]] std::pair<int,int> time_passed() const;
 	[[nodiscard]] std::string time_passed_string() const;
     void pause();
     void resume();
@@ -28,8 +27,8 @@ class Timer
 	};
 
 	Status m_status;
-	usize m_seconds;
-	usize m_seconds_max;
+	int m_seconds;
+	int m_seconds_max;
 
 	ProgressBar m_progress_bar;
 
